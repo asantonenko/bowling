@@ -54,20 +54,20 @@ int Frame::TakeAdditinalRolls(int number) const
 {
     if (m_NextFrames[0] != nullptr)
     {
-        if (number == 2 && m_NextFrames[0].CountRolls() == 2)
+        if (number == 2 && m_NextFrames[0]->CountRolls() == 2)
         {
-            return m_NextFrames[0].GetFirstRoll() + m_NextFrames[0].GetSecondRoll();
+            return m_NextFrames[0]->GetFirstRoll() + m_NextFrames[0]->GetSecondRoll();
         }
-        if (number == 1 && m_NextFrames[0].CountRolls() == 1)
+        if (number == 1 && m_NextFrames[0]->CountRolls() == 1)
         {
-            return m_NextFrames[0].GetFirstRoll();
+            return m_NextFrames[0]->GetFirstRoll();
         }
-        if (number == 2 && m_NextFrames[0].CountRolls() == 1)
+        if (number == 2 && m_NextFrames[0]->CountRolls() == 1)
         {
-            int sum = m_NextFrames[0].GetFirstRoll();
-            if (m_NextFrames[1] != nullptr && m_NextFrames[1].CountRolls() >= 1)
+            int sum = m_NextFrames[0]->GetFirstRoll();
+            if (m_NextFrames[1] != nullptr && m_NextFrames[1]->CountRolls() >= 1)
             {
-                sum += m_NextFrames[1].GetFirstRoll();
+                sum += m_NextFrames[1]->GetFirstRoll();
             }
             return sum;
         }
