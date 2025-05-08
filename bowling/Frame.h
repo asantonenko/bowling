@@ -46,24 +46,8 @@ class Frame
             return 2;
         }
 
-        int Sum() const
-        {
-            int result = 0;
-            switch(CountRolls())
-            {
-                case 2: result = m_FirstRoll + m_SecondRoll; break;
-                case 1: result = m_FirstRoll;
-            }
-            if (isStrike())
-            {
-                result += TakeAdditinalRolls(2);
-            }
-            else if (isSpare())
-            {
-                result += TakeAdditinalRolls(1);
-            }
-            return result;
-        }
+		virtual int Sum() const;
+        
 
         bool IsFrameFinished() const
         {

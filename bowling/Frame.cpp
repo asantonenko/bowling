@@ -74,3 +74,22 @@ int Frame::TakeAdditinalRolls(int number) const
     }
     return 0;
 }
+
+int Frame::Sum() const
+{
+	int result = 0;
+	switch (CountRolls())
+	{
+	case 2: result = m_FirstRoll + m_SecondRoll; break;
+	case 1: result = m_FirstRoll;
+	}
+	if (isStrike())
+	{
+		result += TakeAdditinalRolls(2);
+	}
+	else if (isSpare())
+	{
+		result += TakeAdditinalRolls(1);
+	}
+	return result;
+}
